@@ -120,6 +120,28 @@ public class PlaterGUI extends JFrame {
 		solAreaIn2 = new JTextArea(1, 5);
 		solAreaIn2.setEditable(false);
 		
+		Font font = new Font("Arial", Font.PLAIN, 20);
+		lblSolution.setFont(font);
+		solSelect.setFont(font);
+		lblTitrationValue.setFont(font);
+		txtTitrationValue.setFont(font);
+		lblTitrationUnits.setFont(font);
+		lblFillHt.setFont(font);
+		txtFillHt.setFont(font);
+		btnConvert.setFont(font);
+		lblFillInfo.setFont(font);
+		lblGallons.setFont(font);
+		lblMilliliters.setFont(font);
+		lblInches.setFont(font);
+		solArea1.setFont(font);
+		solAreaGal1.setFont(font);
+		solAreaMil1.setFont(font);
+		solAreaIn1.setFont(font);
+		solArea2.setFont(font);
+		solAreaGal2.setFont(font);
+		solAreaMil2.setFont(font);
+		solAreaIn2.setFont(font);
+		
 		btnConvert.addActionListener(this::convertBtn);
 		
 		addComponentsToFrame();
@@ -129,8 +151,8 @@ public class PlaterGUI extends JFrame {
         frame.add(inputPanel, BorderLayout.NORTH);
         frame.add(inputPanel2, BorderLayout.CENTER);
         frame.add(infoPanel, BorderLayout.SOUTH);
-        frame.setSize(550, 165);
-        frame.setMaximumSize(new Dimension(550, 165));
+        frame.setSize(750, 220);
+        frame.setMaximumSize(new Dimension(750, 220));
         frame.setVisible(true);
 	} // PlaterGUI()
 	
