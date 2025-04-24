@@ -151,8 +151,8 @@ public class PlaterGUI extends JFrame {
         frame.add(inputPanel, BorderLayout.NORTH);
         frame.add(inputPanel2, BorderLayout.CENTER);
         frame.add(infoPanel, BorderLayout.SOUTH);
-        frame.setSize(750, 220);
-        frame.setMaximumSize(new Dimension(750, 220));
+        frame.setSize(800, 220);
+        frame.setMaximumSize(new Dimension(800, 220));
         frame.setVisible(true);
 	} // PlaterGUI()
 	
