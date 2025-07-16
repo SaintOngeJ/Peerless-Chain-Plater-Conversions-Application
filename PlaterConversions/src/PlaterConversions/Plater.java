@@ -42,14 +42,14 @@ public class Plater {
 	private double fillHt;		// inches
 	
 	// Titration values
-	private double naOHPlat;		// oz/gal
+	private double naOHPlat;	// oz/gal
 	private double naOHGen;		// oz/gal
 	private double broCo;		// %
 	private double hCl;			// %
 	private double triBlue;		// %
 	
 	/**
-	 * Constructor: assigns the input values to the package variables
+	 * Constructor
 	 * @param fillHt
 	 * @param naOHPlat
 	 * @param naOHGen
@@ -65,7 +65,7 @@ public class Plater {
 		this.broCo = broCo;
 		this.hCl = hCl;
 		this.triBlue = triBlue;
-	} // Plater()
+	}
 
 	// Fill Height (in)
 	
@@ -75,7 +75,7 @@ public class Plater {
 	 */
 	public double getFillHt() {
 		return fillHt;
-	} // getFillHt()
+	}
 	
 	/**
 	 * Set method that sets the value of fillHeight in inches
@@ -83,7 +83,7 @@ public class Plater {
 	 */
 	public void setFillHt(double fillHt) {
 		this.fillHt = fillHt;
-	} // setFillHt()
+	}
 	
 	// NaOH - Plating Titration Value (oz/gal)
 	
@@ -93,7 +93,7 @@ public class Plater {
 	 */
 	public double getNaOHPlat() {
 		return naOHPlat;
-	} // getNaOHPlat()
+	}
 	
 	/**
 	 * Set method that sets the value of naOHPlating in oz/gal
@@ -101,7 +101,7 @@ public class Plater {
 	 */
 	public void setNaOHPlat(double naOHPlat) {
 		this.naOHPlat = naOHPlat;
-	} // setNaOHPlat()
+	}
 	
 	// NaOH - Generator Titration Value (oz/gal)
 	
@@ -111,15 +111,14 @@ public class Plater {
 	 */
 	public double getNaOHGen() {
 		return naOHGen;
-	} // getNaOHGen()
-	
+	}
 	/**
 	 * Set method that sets the value of naOHGenerator in oz/gal
 	 * @param naOHGen
 	 */
 	public void setNaOHGen(double naOHGen) {
 		this.naOHGen = naOHGen;
-	} // setNaOHGen()
+	}
 	
 	// BroCo Titration Value (%)
 	
@@ -129,7 +128,7 @@ public class Plater {
 	 */
 	public double getBroCo() {
 		return broCo;
-	} // getBroCo()
+	}
 	
 	/**
 	 * Set method that sets the value of broCo as a %
@@ -137,7 +136,7 @@ public class Plater {
 	 */
 	public void setBroCo(double broCo) {
 		this.broCo = broCo;
-	} // setBroCo()
+	}
 
 	// HCl  Value (%)
 	
@@ -147,7 +146,7 @@ public class Plater {
 	 */
 	public double getHCl() {
 		return hCl;
-	} // getHCl()
+	}
 	
 	/**
 	 * Set method that sets the value of hCl as a %
@@ -155,7 +154,7 @@ public class Plater {
 	 */
 	public void setHCl(double hCl) {
 		this.hCl = hCl;
-	} // setHCl()
+	}
 	
 	// TriBlue Titration Value (%)
 	
@@ -165,7 +164,7 @@ public class Plater {
 	 */
 	public double getTriBlue() {
 		return triBlue;
-	} // getTriBlue()
+	}
 	
 	/**
 	 * Set method that sets the value of triBlue as a %
@@ -173,6 +172,6 @@ public class Plater {
 	 */
 	public void setTriBlue(double triBlue) {
 		this.triBlue = triBlue;
-	} // setTriBlue()
+	}
 	
-}// end of Plater Class
+}

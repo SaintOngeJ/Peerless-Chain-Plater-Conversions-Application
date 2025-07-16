@@ -30,6 +30,7 @@ package PlaterConversions;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class PlaterGUI extends JFrame {
 	
@@ -59,7 +60,7 @@ public class PlaterGUI extends JFrame {
 	private JPanel inputPanel, inputPanel2, infoPanel;
 	
 	/**
-	 * Constructor method that builds the GUI
+	 * Constructor that builds the GUI
 	 */
 	public PlaterGUI() {
 		JFrame frame = new JFrame();
@@ -76,15 +77,32 @@ public class PlaterGUI extends JFrame {
 		infoPanel.setLayout(new GridLayout(3, 4));
 		
 		lblSolution = new JLabel("What are you filling?");
-		String[] units = new String[] {"NaOH - Plating", "NaOH - Generator",
-				"BroCo", "HCl", "Tri-Blue"};
-		solSelect = new JComboBox<String>(units);
+		String[] platingSolution = new String[] {"NaOH - Plating",
+				"NaOH - Generator", "BroCo", "HCl", "Tri-Blue"};
+		solSelect = new JComboBox<String>(platingSolution); 
+		solSelect.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int soluIndex = solSelect.getSelectedIndex();
+				final int naOHPlating = 0;
+		        final int naOHGenerator = 1;
+		        final int broCo = 2;
+		        final int hCL = 3;
+		        final int triBlue = 4;
+				if (soluIndex == naOHPlating || soluIndex == naOHGenerator) {
+					lblTitrationUnits.setText("oz./gal.");
+				}  else if (soluIndex == broCo || soluIndex == hCL
+						|| soluIndex == triBlue) {
+					lblTitrationUnits.setText("%");
+				}
+			}
+		});
 		
 		lblTitrationValue = new JLabel("Titration Value");
 		txtTitrationValue = new JTextField(12);
 		
 		lblTitrationUnits = new JTextArea(1, 4);
 		lblTitrationUnits.setEditable(false);
+		lblTitrationUnits.setText("oz./gal.");
 		
 		lblFillHt = new JLabel("Fill Height (Inches)");
 		txtFillHt = new JTextField(12);
@@ -120,7 +138,7 @@ public class PlaterGUI extends JFrame {
 		solAreaIn2 = new JTextArea(1, 5);
 		solAreaIn2.setEditable(false);
 		
-		Font font = new Font("Arial", Font.PLAIN, 20);
+		Font font = new Font("Calibri", Font.PLAIN, 20);
 		lblSolution.setFont(font);
 		solSelect.setFont(font);
 		lblTitrationValue.setFont(font);
@@ -147,17 +165,17 @@ public class PlaterGUI extends JFrame {
 		addComponentsToFrame();
 		
 		frame.setLocationRelativeTo(null);
-		frame.setLayout(new BorderLayout());
-        frame.add(inputPanel, BorderLayout.NORTH);
-        frame.add(inputPanel2, BorderLayout.CENTER);
-        frame.add(infoPanel, BorderLayout.SOUTH);
+		frame.getContentPane().setLayout(new BorderLayout());
+        frame.getContentPane().add(inputPanel, BorderLayout.NORTH);
+        frame.getContentPane().add(inputPanel2, BorderLayout.CENTER);
+        frame.getContentPane().add(infoPanel, BorderLayout.SOUTH);
         frame.setSize(800, 220);
         frame.setMaximumSize(new Dimension(800, 220));
         frame.setVisible(true);
-	} // PlaterGUI()
+	}
 	
 	/**
-	 * Method that adds the components to the frame
+	 * Adds the components to the frame
 	 */
 	public void addComponentsToFrame() {
 		inputPanel.add(lblSolution);
@@ -182,24 +200,18 @@ public class PlaterGUI extends JFrame {
 		infoPanel.add(solAreaGal2);
 		infoPanel.add(solAreaMil2);
 		infoPanel.add(solAreaIn2);
-	} // addComponentsToFrame()
+	}
 	
 	/**
-	 * This method fills the information of the NaOHPlat values on the form
+	 * Fills the information of NaOHPlat values on the form
 	 */
 	public void NaOHPlatInfo() {
 		try {
-			// setting the units
-			lblTitrationUnits.setText("oz./gal.");
-			// parsing titration value and storing it
             plater.setNaOHPlat(Float.parseFloat
             		(txtTitrationValue.getText()));
-            // parsing fill height value and storing it
             plater.setFillHt(Float.parseFloat(txtFillHt.getText()));
-            // setting the fill information
             solArea1.setText("NaOH Plating - Fill");
             solArea2.setText("H2O Plating - Fill");
-            // setting the titration values on the form
             solAreaGal1.setText(String.format("%.2f",
             		platerCalc.naOHPlatGal()));
             solAreaGal2.setText(String.format("%.2f",
@@ -217,24 +229,18 @@ public class PlaterGUI extends JFrame {
                 		"Invalid input. Please enter a number.",
                 		"Error", JOptionPane.ERROR_MESSAGE);
          }
-	} // NaOHPlatingInfo()
+	}
 	
 	/**
-	 * This method fills the information of the NaOHGen values on the form
+	 * Fills the information of NaOHGen values on the form
 	 */
 	public void NaOHGenInfo() {
 		try {
-			// setting the units
-			lblTitrationUnits.setText("oz./gal.");
-			// parsing titration value and storing it
 			plater.setNaOHGen(Float.parseFloat
             		(txtTitrationValue.getText()));
-			// parsing fill height value and storing it
             plater.setFillHt(Float.parseFloat(txtFillHt.getText()));
-            // setting the fill information
             solArea1.setText("NaOH Generator - Fill");
             solArea2.setText("H2O Generator - Fill");
-            // setting the titration values on the form
             solAreaGal1.setText(String.format("%.2f",
             		platerCalc.naOHGenGal()));
             solAreaMil1.setText(String.format("%.2f",
@@ -252,24 +258,18 @@ public class PlaterGUI extends JFrame {
                 		"Invalid input. Please enter a number.",
                 		"Error", JOptionPane.ERROR_MESSAGE);
          }
-	} // NaOHGenInfo()
+	}
 	
 	/**
-	 * This method fills the information of the BroCo values on the form
+	 * Fills the information of BroCo values on the form
 	 */
 	public void BroCoInfo() {
 		try {
-			// setting the units
-			lblTitrationUnits.setText("%");
-			// parsing titration value and storing it
 			plater.setBroCo(Float.parseFloat
 					(txtTitrationValue.getText()));
-			// parsing fill height value and storing it
 			plater.setFillHt(Float.parseFloat(txtFillHt.getText()));
-			// setting the fill information
 			solArea1.setText("BroCo Fill");
 			solArea2.setText("H2O Fill");
-			// setting the titration values of the form
 			solAreaGal1.setText(String.format("%.2f",
 					platerCalc.broCoGal()));
 			solAreaMil1.setText(String.format("%.2f",
@@ -287,24 +287,18 @@ public class PlaterGUI extends JFrame {
             		"Invalid input. Please enter a number.",
             		"Error", JOptionPane.ERROR_MESSAGE);
 		}
-	} // BroCoInfo()
+	}
 	
 	/**
-	 * This method fills the information of the HCl values on the form
+	 * Fills the information of HCl values on the form
 	 */
 	public void HClInfo() {
 		try {
-			// setting the units
-			lblTitrationUnits.setText("%");
-			// parsing the titration value and storing it
 			plater.setHCl(Float.parseFloat
 					(txtTitrationValue.getText()));
-			// parsing the fill height and storing it
 			plater.setFillHt(Float.parseFloat(txtFillHt.getText()));
-			// setting the fill information
 			solArea1.setText("HCl");
 			solArea2.setText("H2O");
-			// setting the titration values on the form
 			solAreaGal1.setText(String.format("%.2f",
 					platerCalc.hClGal()));
 			solAreaMil1.setText(String.format("%.2f",
@@ -322,24 +316,18 @@ public class PlaterGUI extends JFrame {
             		"Invalid input. Please enter a number.",
             		"Error", JOptionPane.ERROR_MESSAGE);
 		}
-	} // HClInfo()
+	}
 	
 	/**
-	 * This method fills the information of the Tri-Blue values on the form
+	 * Fills the information of Tri-Blue values on the form
 	 */
 	public void TriBlueInfo() {
 		try {
-			// setting the units
-			lblTitrationUnits.setText("%");
-			// parsing the titration value and storing it
 			plater.setHCl(Float.parseFloat
 					(txtTitrationValue.getText()));
-			// parsing the fill height and storing it
 			plater.setFillHt(Float.parseFloat(txtFillHt.getText()));
-			// setting the fill information
 			solArea1.setText("Tri-Blue");
 			solArea2.setText("H2O");
-			// setting the titration values on the form
 			solAreaGal1.setText(String.format("%.2f",
 					platerCalc.triBlueGal()));
 			solAreaMil1.setText(String.format("%.2f",
@@ -357,57 +345,50 @@ public class PlaterGUI extends JFrame {
             		"Invalid input. Please enter a number.",
             		"Error", JOptionPane.ERROR_MESSAGE);
 		}
-	} // TriBlueInfo()
+	}
 	
 	/**
-	 * This method updates the GUI with calculations from user inputed values
+	 * Updates the GUI with calculations from user inputed values
 	 * @param e
 	 */
 	private void convertBtn(ActionEvent e) {
 		if (e.getSource() == btnConvert) {
-			// getting the current index of solSelect
-			int index = solSelect.getSelectedIndex();
-			// creating new Plater and PlaterCalculations objects
+			int soluIndex = solSelect.getSelectedIndex();
 			plater = new Plater(0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 	        platerCalc = new PlaterCalculations(plater);
-			// iterating between methods based on index
-			switch (index) {
-				// NaOH - Plating
-				case 0:
+	        final int naOHPlating = 0;
+	        final int naOHGenerator = 1;
+	        final int broCo = 2;
+	        final int hCL = 3;
+	        final int triBlue = 4;
+			switch (soluIndex) {
+				case naOHPlating:
 					NaOHPlatInfo();
 			        break;
-			
-			    // NaOH - Generator
-				case 1:
+				case naOHGenerator:
 					NaOHGenInfo();
 			        break;
-			
-			    // BroCo
-				case 2:
+				case broCo:
 					BroCoInfo();
 					break;
-			
-				// HCl
-				case 3:
+				case hCL:
 					HClInfo();
 					break;
-				
-				// Tri-Blue
-				case 4:
+				case triBlue:
 					TriBlueInfo();
 					break;
 			}
 		}
-	} // convertBtn()
+	}
 	
 	/**
-	 * This is the main method
+	 * Main method
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(() -> {
 			new PlaterGUI();
 			});
-	} // main()
+	}
 
-} // end of PlaterGUI Class
+}
