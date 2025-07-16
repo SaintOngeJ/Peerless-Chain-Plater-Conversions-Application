@@ -83,11 +83,11 @@ public class PlaterGUI extends JFrame {
 		solSelect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int soluIndex = solSelect.getSelectedIndex();
-				final int naOHPlating = 0;
-		        final int naOHGenerator = 1;
-		        final int broCo = 2;
-		        final int hCL = 3;
-		        final int triBlue = 4;
+				final byte naOHPlating = 0;
+		        final byte naOHGenerator = 1;
+		        final byte broCo = 2;
+		        final byte hCL = 3;
+		        final byte triBlue = 4;
 				if (soluIndex == naOHPlating || soluIndex == naOHGenerator) {
 					lblTitrationUnits.setText("oz./gal.");
 				}  else if (soluIndex == broCo || soluIndex == hCL
