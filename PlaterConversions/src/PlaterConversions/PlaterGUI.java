@@ -205,7 +205,7 @@ public class PlaterGUI extends JFrame {
 	/**
 	 * Fills the information of NaOHPlat values on the form
 	 */
-	public void NaOHPlatInfo() {
+	public void naOHPlatInfo() {
 		try {
             plater.setNaOHPlat(Float.parseFloat
             		(txtTitrationValue.getText()));
@@ -224,7 +224,7 @@ public class PlaterGUI extends JFrame {
             		platerCalc.naOHPlatIn()));
             solAreaIn2.setText(String.format("%.2f",
             		platerCalc.h2OPlatIn()));
-		 } catch (NumberFormatException ex) {
+		 } catch (NumberFormatException nfe) {
                 JOptionPane.showMessageDialog(this,
                 		"Invalid input. Please enter a number.",
                 		"Error", JOptionPane.ERROR_MESSAGE);
@@ -234,7 +234,7 @@ public class PlaterGUI extends JFrame {
 	/**
 	 * Fills the information of NaOHGen values on the form
 	 */
-	public void NaOHGenInfo() {
+	public void naOHGenInfo() {
 		try {
 			plater.setNaOHGen(Float.parseFloat
             		(txtTitrationValue.getText()));
@@ -253,7 +253,7 @@ public class PlaterGUI extends JFrame {
             		platerCalc.h2OGenmL()));
             solAreaIn2.setText(String.format("%.2f",
             		platerCalc.h2OGenIn()));
-		 } catch (NumberFormatException ex) {
+		 } catch (NumberFormatException nfe) {
                 JOptionPane.showMessageDialog(this,
                 		"Invalid input. Please enter a number.",
                 		"Error", JOptionPane.ERROR_MESSAGE);
@@ -263,7 +263,7 @@ public class PlaterGUI extends JFrame {
 	/**
 	 * Fills the information of BroCo values on the form
 	 */
-	public void BroCoInfo() {
+	public void broCoInfo() {
 		try {
 			plater.setBroCo(Float.parseFloat
 					(txtTitrationValue.getText()));
@@ -282,7 +282,7 @@ public class PlaterGUI extends JFrame {
 					platerCalc.h2OBromL()));
 			solAreaIn2.setText(String.format("%.2f",
 					platerCalc.h2OBroIn()));
-		} catch (NumberFormatException ex) {
+		} catch (NumberFormatException nfe) {
             JOptionPane.showMessageDialog(this,
             		"Invalid input. Please enter a number.",
             		"Error", JOptionPane.ERROR_MESSAGE);
@@ -292,7 +292,7 @@ public class PlaterGUI extends JFrame {
 	/**
 	 * Fills the information of HCl values on the form
 	 */
-	public void HClInfo() {
+	public void hClInfo() {
 		try {
 			plater.setHCl(Float.parseFloat
 					(txtTitrationValue.getText()));
@@ -311,7 +311,7 @@ public class PlaterGUI extends JFrame {
 					platerCalc.h2OHClmL()));
 			solAreaIn2.setText(String.format("%.2f",
 					platerCalc.h2OHClIn()));
-		} catch (NumberFormatException ex) {
+		} catch (NumberFormatException nfe) {
             JOptionPane.showMessageDialog(this,
             		"Invalid input. Please enter a number.",
             		"Error", JOptionPane.ERROR_MESSAGE);
@@ -321,7 +321,7 @@ public class PlaterGUI extends JFrame {
 	/**
 	 * Fills the information of Tri-Blue values on the form
 	 */
-	public void TriBlueInfo() {
+	public void triBlueInfo() {
 		try {
 			plater.setHCl(Float.parseFloat
 					(txtTitrationValue.getText()));
@@ -340,7 +340,7 @@ public class PlaterGUI extends JFrame {
 					platerCalc.h2OTriBluemL()));
 			solAreaIn2.setText(String.format("%.2f",
 					platerCalc.h2OTriBlueIn()));
-		} catch (NumberFormatException ex) {
+		} catch (NumberFormatException nfe) {
             JOptionPane.showMessageDialog(this,
             		"Invalid input. Please enter a number.",
             		"Error", JOptionPane.ERROR_MESSAGE);
@@ -363,19 +363,19 @@ public class PlaterGUI extends JFrame {
 	        final int triBlue = 4;
 			switch (soluIndex) {
 				case naOHPlating:
-					NaOHPlatInfo();
+					naOHPlatInfo();
 			        break;
 				case naOHGenerator:
-					NaOHGenInfo();
+					naOHGenInfo();
 			        break;
 				case broCo:
-					BroCoInfo();
+					broCoInfo();
 					break;
 				case hCL:
-					HClInfo();
+					hClInfo();
 					break;
 				case triBlue:
-					TriBlueInfo();
+					triBlueInfo();
 					break;
 			}
 		}

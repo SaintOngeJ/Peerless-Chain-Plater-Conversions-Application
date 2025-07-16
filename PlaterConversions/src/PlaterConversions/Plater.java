@@ -43,10 +43,10 @@ public class Plater {
 	
 	// Titration values
 	private double naOHPlat;	// oz/gal
-	private double naOHGen;		// oz/gal
+	private double naOHGen;
 	private double broCo;		// %
-	private double hCl;			// %
-	private double triBlue;		// %
+	private double hCl;
+	private double triBlue;
 	
 	/**
 	 * Constructor
