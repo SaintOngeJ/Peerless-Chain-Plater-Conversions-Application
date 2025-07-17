@@ -57,6 +57,7 @@ public class PlaterGUI extends JFrame {
 	private JTextArea solAreaGal2;
 	private JTextArea solAreaMil2;
 	private JTextArea solAreaIn2;
+//	private JTextArea targetValues;
 	private JPanel inputPanel, inputPanel2, infoPanel;
 	
 	/**
@@ -138,6 +139,9 @@ public class PlaterGUI extends JFrame {
 		solAreaIn2 = new JTextArea(1, 5);
 		solAreaIn2.setEditable(false);
 		
+//		targetValues = new JTextArea(1, 15);
+//		targetValues.setEditable(false);
+		
 		Font font = new Font("Calibri", Font.PLAIN, 20);
 		lblSolution.setFont(font);
 		solSelect.setFont(font);
@@ -159,6 +163,7 @@ public class PlaterGUI extends JFrame {
 		solAreaGal2.setFont(font);
 		solAreaMil2.setFont(font);
 		solAreaIn2.setFont(font);
+//		targetValues.setFont(font);
 		
 		btnConvert.addActionListener(this::convertBtn);
 		
@@ -200,6 +205,7 @@ public class PlaterGUI extends JFrame {
 		infoPanel.add(solAreaGal2);
 		infoPanel.add(solAreaMil2);
 		infoPanel.add(solAreaIn2);
+//		infoPanel.add(targetValues);
 	}
 	
 	/**
